@@ -1,0 +1,480 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0; /*Afecta vertical y horizontalmente*/
+    box-sizing: border-box; /* Asegura que el padding esté dentro del ancho especificado. Con ponerlo una sola vez debería alcanzar. */
+    
+}
+
+html {
+    font-size: 16px; /* Establece el tamaño de la fuente raíz */
+}
+/*  Establece el tamaño de la fuente raíz. Esto es importante porque otros tamaños de fuente que definas usando rem se basarán en este valor. Por ejemplo, si defines un elemento con font-size: 2rem, su tamaño de fuente será 32px (2 * 16px).*/
+
+body {
+    background-color: rgb(29, 80, 114);
+    color: #f19136;
+    background-image: url(img/texturafondo.jpg);
+    background-size: cover; /* Ajusta la imagen para cubrir todo el área del fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el fondo */
+    min-height: 100vh;
+
+    padding: 0rem 1.25rem;
+
+    border: 0.125rem solid rgb(255, 126, 126);
+}
+
+.grid-container > * {
+    padding: 0.625rem;
+    text-align: center;
+    font-weight: 900;
+
+    /* border: 2px solid black;*/
+}
+
+.grid-container {
+    display: grid;
+    grid-template: /* PARA PANTALLAS PEQUEÑAS, COMO MÓVILES. */
+    " . header . " 
+    " . header-fijo . " 
+    " . nav . " 
+    " div-izquierdo main div-derecho " 
+    " . footer . " 
+    / 12% auto 12%;
+
+
+    .header {
+        grid-area: header;
+        
+        background-color: #212b2c;
+        color: white;
+        border-color: #f19136;
+        border-style: solid;
+        border-width: 0.1875rem;
+        
+        display: grid;
+        grid-template:
+        " . h1 h1 h1 img ." 
+        " . h2 h2 h2 img ."  
+        " . p p p img . " /
+        0.2fr 1fr 1fr 1fr 1fr 0.2fr;
+
+        align-items: center;  /* Centra verticalmente los elementos */
+        
+
+       
+
+        padding: 1.20rem auto;
+     
+
+        
+        h1 {
+            grid-area: h1;
+            color: #f19136;
+    
+
+        }
+
+        img {
+            grid-area: img;
+            width: 80%;  /* La imagen ocupará toda su columna */
+            height: auto;  /* Ajusta la altura de la imagen automáticamente */
+            object-fit: cover; /* Ajusta la imagen para que se adapte bien al área */
+            margin-left: 1.7rem;
+             
+
+        }
+            
+        h2 {
+            grid-area: h2;
+            color: #ffd900;
+           
+
+
+        }
+            
+        p {
+            grid-area: p;
+
+        }
+
+        h1, h2, p {
+
+        }
+    }
+
+
+
+    .header-fijo {
+        grid-area: header-fijo;
+
+        background-color: #f19136;
+        color: white;
+        
+
+        position: fixed;
+        top: 0; /* Fija en la parte superior de la página */
+        width: 80%; /* Ocupa todo el ancho de la página */
+        max-width: 1200px; /* Puedes establecer un ancho máximo si es necesario */
+        left: 50%; /* Alinea a la izquierda de manera relativa al 50% */
+        transform: translateX(-50%); /* Ajusta para centrar el header */
+        z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+
+        
+        
+
+        h2 {
+            font-family: 'Playwrite GB S', sans-serif;
+            font-size: 1rem;
+
+        }
+
+    }
+
+
+
+    .nav {
+        grid-area: nav;
+
+        background-color: #f19136;
+        border-color: #f19136;
+        border-style: solid;
+        border-width: 0.1875rem;
+        border-top: none;
+        border-bottom: none;
+
+
+        
+        ul {
+            display: flex; /* Aplica flexbox a la lista */
+            justify-content: center; /* Centra los enlaces horizontalmente */
+            list-style: none; /* Elimina los puntos de la lista */
+
+        }
+
+        ul li {
+            flex: 1; /* Cada enlace ocupará el mismo espacio */
+            text-align: center; /* Centra el texto dentro del enlace */
+        }
+
+        
+    }
+
+
+    .div-izquierdo {
+        grid-area: div-izquierdo;
+
+        border-color: #f19136;
+        border-style: solid;
+        border-width: 0.1875rem;
+        border-right: none;
+        
+        display: grid
+    }
+
+
+
+    .div-derecho {
+        grid-area: div-derecho;
+        
+        border-color: #f19136;
+        border-style: solid;
+        border-width: 0.1875rem;
+        border-left: none;
+        
+        display: grid;
+
+
+        .boton-flecha-contenedor {
+
+        }
+
+        .boton-subir {
+
+        }
+    }
+
+
+    .main {
+        grid-area: main;
+
+        background-color: #212b2c;
+        color: #f19136;
+        border-color: #f19136;
+        border-style: solid;
+        border-width: 0.1875rem;
+
+        display: grid;
+
+        min-height: 40rem;
+
+        padding: 60px;
+        
+        
+    }
+
+
+    .main-index {
+        p {
+            color: rgb(255, 217, 0);
+        }
+
+
+    }
+
+
+    .main-acercade {
+       
+    }
+
+    
+    .main-contacto {
+       
+    }
+
+
+    
+
+    .footer {
+        grid-area: footer;
+
+
+       
+
+        background-color: #f19136;
+        color: rgb(6, 6, 6);
+        border-color: #f19136;
+        border-style: solid;
+        border-width: 0.1875rem;
+       
+       
+        
+
+        .footer-p1{
+            margin-bottom: 1rem;
+        
+        }
+
+
+    }
+
+
+
+
+
+    @media (min-width:768px) {  /* PARA PANTALLAS MEDIANAS, COMO TABLETS. */
+        /*
+        grid-template:
+        " . header . " 
+        " . header-fijo . "   
+        " . nav . " 
+        " div-izquierdo main div-derecho" 
+        " . footer . " 
+        / 12% auto 12%;
+        */
+
+        .header {
+
+            padding-top: 2.7rem;
+            padding-bottom: 2.7rem;
+            
+            
+            h1 {
+               
+            }
+
+            img {
+                width: 50%;
+                margin-left: 3rem;
+            }
+                
+              
+            h2 {
+
+            }
+                
+            p {
+
+            }
+            
+        }
+
+        
+
+        .header-fijo {
+    
+            h2 {
+                
+            }
+    
+        }
+
+        .nav{
+    
+            ul {
+                
+            }
+        }
+
+        .div-izquierdo {
+            
+        }
+
+        .div-derecho {
+    
+            .boton-flecha-contenedor {
+    
+            }
+    
+            .boton-subir {
+                
+            }
+        }
+
+
+        .main-index {
+
+            p {
+                color: rgb(255, 0, 0);
+            }
+           
+        }
+    
+    
+        .main-acercade {
+            
+        }
+    
+        
+        .main-contacto {
+           
+        }
+
+
+        .footer {
+
+    
+            p {
+              
+            }
+        }
+    }
+    
+
+    
+
+        
+    @media (min-width:992px) { /* PARA PANTALLAS GRANDES, COMO DE PC. */
+        /*
+        grid-template:
+        " . header . " 
+        " . header-fijo . "  
+        " . nav . " 
+        " div-izquierdo main div-derecho " 
+        " . footer . " 
+        / 12% auto 12%;
+        */
+
+        .header {
+
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+
+            
+            h1 {
+    
+            }
+
+            img {
+                width: 40%;
+                margin-left: 7rem;
+     
+            }
+                
+          
+            h2 {
+    
+            }
+                
+
+            p {
+            
+            }
+
+        }
+
+
+        .header-fijo {
+        
+    
+            h2 {
+                
+            }
+    
+        }
+
+        .nav{
+            
+    
+            ul {
+                
+            }
+        }
+
+        .div-izquierdo {
+        
+    
+        }
+
+        .div-derecho {
+    
+    
+            .boton-flecha-contenedor {
+    
+            }
+    
+            .boton-subir {
+                
+            }
+        }
+
+
+        .main-index {
+            p {
+                color: rgb(181, 66, 185);
+            }
+          
+        }
+    
+    
+        .main-acercade {
+           
+            
+           
+        }
+    
+        
+        .main-contacto {
+            
+        }
+
+
+        .footer {
+        
+        }
+
+    }
+
+          
+}
+
+        
+
+
+
+
+
+
+
